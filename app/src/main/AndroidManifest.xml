@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="anna.richarddawkinsalarmclock">
-
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    package="annaxu.richarddawkinsalarmclock">
 
     <application
         android:allowBackup="true"
@@ -18,11 +16,6 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
-
-                <action android:name="com.tutorialspoint.CUSTOM_INTENT">
-                    </action>
-
             </intent-filter>
         </activity>
 
