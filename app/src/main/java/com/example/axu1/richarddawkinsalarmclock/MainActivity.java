@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         // set the alarm to the time that you picked
         final Calendar calendar = Calendar.getInstance();
-        //calendar.add(Calendar.SECOND, 3);
+
         alarmTimePicker = (TimePicker) findViewById(R.id.alarmTimePicker);
 
 
@@ -61,20 +61,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getHour());
-                calendar.set(Calendar.MINUTE, alarmTimePicker.getMinute());
-
-                final int hour = alarmTimePicker.getHour();
-                final int minute = alarmTimePicker.getMinute();;
+                calendar.add(Calendar.SECOND, 3);
+                setAlarmText("You clicked a button");
 
 
-                myIntent.putExtra("extra", "yes");
-                pending_intent = PendingIntent.getBroadcast(MainActivity.this, 0, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                //calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getHour());
+                //calendar.set(Calendar.MINUTE, alarmTimePicker.getMinute());
 
-                alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pending_intent);
+                //final int hour = alarmTimePicker.getHour();
+                //final int minute = alarmTimePicker.getMinute();;
 
-                setAlarmText("Alarm set to " + hour + ":" + minute);
+
+                //myIntent.putExtra("extra", "yes");
+                //pending_intent = PendingIntent.getBroadcast(MainActivity.this, 0, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                //alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pending_intent);
+
+                //setAlarmText("Alarm set to " + hour + ":" + minute);
                 //Toast.makeText(getApplicationContext(), "You set the alarm", Toast.LENGTH_SHORT).show();
             }
 
@@ -94,10 +97,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("random number is ", String.valueOf(random_number));
 
 
-                myIntent.putExtra("extra", "no");
-                sendBroadcast(myIntent);
+                //myIntent.putExtra("extra", "no");
+                //sendBroadcast(myIntent);
 
-                alarmManager.cancel(pending_intent);
+                //alarmManager.cancel(pending_intent);
                 setAlarmText("Alarm canceled");
             }
         });
