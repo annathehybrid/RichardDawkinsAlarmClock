@@ -107,7 +107,9 @@ public class MainActivity extends AppCompatActivity {
 
                 myIntent.putExtra("extra", "no");
                 sendBroadcast(myIntent);
-
+                //Without the following line, if you cancel the alarm after destroying your activity, it'll throw a null pointer
+                //error as pending_intent object is uninitialized
+                pending_intent = PendingIntent.getBroadcast(MainActivity.this, 0, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                 alarmManager.cancel(pending_intent);
                 setAlarmText("Alarm canceled");
                 //setAlarmText("You clicked a " + " canceled");
